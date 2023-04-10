@@ -1,0 +1,132 @@
+<div class="form">
+  <h2>Register</h2>
+  <br />
+  <form [formGroup]="userRegisterForm" (ngSubmit)="register()">
+    <input
+      id="fileInput"
+      style="display: none"
+      type="file"
+      accept="Image"
+      (change)="imageHandler($event)"
+    />
+    <label class="imageLabel" ><img [src]="imgSrc"/></label>
+    <label for="fileInput" class="imageLabel1">
+      <mat-icon>photo_camera</mat-icon>
+    </label>
+
+    <div class="name">
+      <div class="align">
+        <input
+          type="text"
+          formControlName="firstName"
+          placeholder="First name"
+          [class.error]="
+            userRegisterForm.controls['firstName'].invalid &&
+            userRegisterForm.get('firstName')?.touched
+          "
+        />
+        <p
+          *ngIf="userRegisterForm.get('firstName')?.touched && userRegisterForm.get('firstName')?.errors?.['required']"
+        >
+          FName is required.
+        </p>
+      </div>
+      <div class="align">
+        <input
+          type="text"
+          formControlName="lastName"
+          placeholder="Last name"
+          [class.error]="
+            userRegisterForm.controls['lastName'].invalid &&
+            userRegisterForm.get('lastName')?.touched
+          "
+        />
+        <p
+          *ngIf="userRegisterForm.get('lastName')?.touched && userRegisterForm.get('lastName')?.errors?.['required']"
+        >
+          LName is required.
+        </p>
+      </div>
+    </div>
+    <input
+      type="email"
+      formControlName="email"
+      placeholder="abc@example.com"
+      [class.error]="
+        userRegisterForm.controls['email'].invalid &&
+        userRegisterForm.get('email')?.touched
+      "
+    />
+    <div class="name">
+      <p
+        *ngIf="userRegisterForm.get('email')?.touched && userRegisterForm.get('email')?.errors?.['required']"
+      >
+        Email is required.
+      </p>
+      <p
+        *ngIf="userRegisterForm.get('email')?.touched && userRegisterForm.get('email')?.errors?.['email']"
+      >
+        Wrong Email Format.
+      </p>
+    </div>
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Password"
+      [class.error]="
+        userRegisterForm.controls['password'].invalid &&
+        userRegisterForm.get('password')?.touched
+      "
+    />
+    <p
+      *ngIf="userRegisterForm.get('password')?.touched && userRegisterForm.get('password')?.errors?.['required']"
+    >
+      Password is required.
+    </p>
+    <input
+      type="password"
+      formControlName="confirmPassword"
+      placeholder="Confirm Password"
+      [class.error]="
+        userRegisterForm.controls['confirmPassword'].invalid &&
+        userRegisterForm.get('confirmPassword')?.touched
+      "
+    />
+    <div class="name">
+      <p
+        *ngIf="userRegisterForm.get('confirmPassword')?.touched && userRegisterForm.get('confirmPassword')?.errors?.['required']"
+      >
+        Confirm Password Required.
+      </p>
+      <p
+        *ngIf="
+          userRegisterForm.hasError('passwordMismatch') &&
+          (userRegisterForm.get('password')?.dirty ||
+            userRegisterForm.get('confirmPassword')?.dirty)
+        "
+      >
+        Passwords not match.
+      </p>
+    </div>
+    <div class="divv">
+      <button [disabled]="userRegisterForm.invalid" type="submit">
+        Register
+      </button>
+    </div>
+  </form>
+  <a class="divv" routerLink="/user/login">Already have an account?</a>
+  <div class="icons">
+    <a href=""
+      ><span><img src="../../assets/google.png" /></span
+      ><span style="margin-left: 10px">Sign Up With Google</span></a
+    >
+    <a href=""
+      ><span><img src="../../assets/facebook.png" /></span
+      ><span style="margin-left: 10px">Sign Up With Facebook</span></a
+    >
+    <a href=""
+      ><span><img src="../../assets/github.png" /></span
+      ><span style="margin-left: 10px">Sign Up With Github</span></a
+    >
+  </div>
+</div>

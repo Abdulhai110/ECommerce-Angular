@@ -1,0 +1,28 @@
+.adminDashboardHeader{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: end;
+  background-color: var(--black);
+}
+.adminDashboardHeader .subHeader{
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.adminDashboardHeader a{
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.adminDashboardHeader a:hover{
+  color: black;
+  background-color: white;
+}
+
+.active{
+  border: 2px solid white;
+}

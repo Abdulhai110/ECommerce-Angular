@@ -1,0 +1,16 @@
+.butons{
+  display: flex;
+  justify-content: flex-end;
+}
+.form button{
+  margin-top: 10px;
+}
+
+.form p{
+  padding-top: 10px ;
+}
+.form p a{
+  padding-left: 5px;
+}
+
+

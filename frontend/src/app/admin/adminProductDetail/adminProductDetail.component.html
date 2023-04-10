@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="allImages" >
+    <img (click)="image(i)" [src]="item.secure_url" alt="image" *ngFor="let item of obj.ProductPhotos; let i = index" />
+  </div>
+  <div class="page">
+    <div class="controlButton">
+      <i routerLink="/admin">X</i>
+    </div>
+    <div class="productDetail">
+      <div class="image">
+        <img [src]="obj.ProductPhotos[index].secure_url" alt="image" />
+      </div>
+      <div class="desc">
+        <h2>{{ obj.name }}</h2>
+        <label for="">Price:</label>
+        <p>$ {{ obj.price }}</p>
+        <label for="">Brand</label>
+        <p>{{ obj.brand }}</p>
+        <label for="">Desc:</label>
+        <p>{{ obj.description }}</p>
+        <div class="button">
+          <button style="background-color: var(--red); color: white;" (click)="deleteProduct(obj.id)" > <i class="fa-solid fa-trash"></i> </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="reviewsDiv">
+  <div class="reviews" *ngFor="let item of reviews">
+    <div class="profile-rating">
+      <div class="profile">
+        <img [src]="imgSrc" alt="profile">
+        <h4 style="margin-left: 5px;">{{item.name}}</h4>
+      </div>
+      <div class="rating">
+        <rating
+            class="star"
+            [(ngModel)]="item.rating"
+            [max]="5"
+            [readonly]="true"
+          ></rating>
+      </div>
+    </div>
+    <div class="comment">
+      <p>{{item.comment}}</p>
+    </div>
+
+  </div>
+</div>
+

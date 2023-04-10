@@ -1,0 +1,83 @@
+<!-- <app-nav></app-nav> -->
+<div class="cart" *ngIf="cartItems.length==0">
+  <div class="title">
+    <h1>Cart Is Empty</h1>
+  </div>
+</div>
+<div *ngIf="cartItems.length >= '1'">
+  <div class="cart">
+    <div class="title">
+      <h1>Shopping Cart</h1>
+    </div>
+    <div class="cartItems" *ngFor="let item of cartItems; let i = index">
+      <div class="productImg">
+        <img [src]="item.ProductPhotos[0].secure_url" alt="Image" />
+      </div>
+      <div class="productDescription">
+        <div class="description">
+          <label for="">Name:</label>
+          <p>{{ item.name }}</p>
+          <label for="">Brand:</label>
+          <p>{{ item.brand }}</p>
+          <label for="">Description:</label>
+          <p id="desc">{{ item.description }}</p>
+        </div>
+        <div class="rating">
+          <rating
+            class="star"
+            [(ngModel)]="item.ratings"
+            [max]="5"
+            [readonly]="true"
+          ></rating>
+        </div>
+      </div>
+      <div class="price-quantityManager">
+        <div class="pr">
+          <p>$ {{ item.price }}</p>
+        </div>
+        <div class="quantity">
+          <button [disabled]="item.quantity == 1" (click)="decreaseQuantity(i)">
+            -
+          </button>
+          {{ item.quantity }}
+          <button (click)="increaseQuantity(i)">+</button>
+        </div>
+        <div class="remove">
+          <button (click)="removeProduct(i)"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="subTotal">
+      <p>Subtotal: {{ sum | currency : "USD" : "symbol" : "1.2-2" }}</p>
+    </div>
+    <div class="checkoutBtn">
+      <button (click)="proceedCheckout()">Proceed to checkout</button>
+    </div>
+  </div>
+</div>
+
+<div class="checkout" *ngIf="detailForm">
+  <form [formGroup]="checkoutForm" (ngSubmit)="checkout()">
+    <div>
+      <div>
+        <label for="">Address</label>
+        <input type="text" formControlName="address" />
+        <label for="">City</label>
+        <input type="text" formControlName="city" />
+        <label for="">State</label>
+        <input type="text" formControlName="state" />
+        <label for="">Country</label>
+        <input type="text" formControlName="country" />
+        <label for="">Postal Code</label>
+        <input type="number" formControlName="postalCode" />
+        <label for="">Zip Code</label>
+        <input type="number" formControlName="zipcode" />
+      </div>
+
+      <div class="divv">
+        <button type="submit">Proceed</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- <p (click)="getSubtotal()">Subtotal</p> -->

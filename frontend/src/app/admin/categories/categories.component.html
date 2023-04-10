@@ -1,0 +1,36 @@
+
+<app-adminHeader></app-adminHeader>
+<div class="addCategory form" *ngIf="addCatDiv" >
+    <form [formGroup]="addCategory" (ngSubmit)="addCat()">
+      <label for="">Add Category</label>
+      <input type="text" formControlName="name" (ngSubmit)="addCat()" placeholder="name"
+        [class.error]="addCategory.get('name')?.touched && addCategory.get('name')?.errors?.['required'] "
+      />
+      <div class="divv">
+        <button [disabled]="addCategory.invalid" type="submit">Add</button>
+      </div>
+    </form>
+  </div>
+
+<div class="categoryList">
+  <h2>Available Categories</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of list">
+        <td>{{data.id}}</td>
+        <td>{{data.name}}</td>
+        <td><button (click)="deleteCategory(data.id)" >Delete</button></td>
+
+      </tr>
+      <tr>
+       <td colspan="3"> <button (click)="addCatDivFun()" >Add</button> </td></tr>
+    </tbody>
+  </table>
+</div>

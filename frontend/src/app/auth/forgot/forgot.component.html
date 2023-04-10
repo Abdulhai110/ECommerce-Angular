@@ -1,0 +1,14 @@
+<div class="form" *ngIf="pageToggle">
+  <h2>Token Sent To Your Email</h2>
+</div>
+
+<div class="form" *ngIf="!pageToggle" >
+  <h2>Forgot Password</h2>
+  <form [formGroup]="forgotPasswordForm" (ngSubmit)="forgotPassword()">
+    <input type="email" formControlName="email" placeholder="abc@example.com" [class.error]="forgotPasswordForm.get('email')?.touched && forgotPasswordForm.get('email')?.errors?.['required'] " />
+    <p *ngIf="forgotPasswordForm.get('email')?.touched && forgotPasswordForm.get('email')?.errors?.['required'] " >Email Required</p>
+    <div class="divv">
+      <button [disabled]="forgotPasswordForm.invalid" type="submit">Next</button>
+    </div>
+  </form>
+</div>

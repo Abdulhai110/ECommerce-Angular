@@ -1,0 +1,26 @@
+<app-nav></app-nav>
+<div class="mainContent">
+  <div class="product" *ngFor="let item of products.products">
+    <a routerLink="/productDetail/{{item.id}}">
+      <img [src]="item.ProductPhotos[0].secure_url" alt="" />
+    </a>
+    <div class="productDetail">
+      <div class="detail">
+        <p>{{ item.name }}</p>
+        <p>$ {{item.price}}</p>
+        <rating
+          class="star"
+          [(ngModel)]="item.ratings"
+          [max]="5"
+          [readonly]="true"
+        ></rating>
+      </div>
+
+      <div class="cart">
+        <a routerLink="/productDetail/{{item.id}}">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

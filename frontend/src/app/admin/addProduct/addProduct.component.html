@@ -1,0 +1,39 @@
+<app-adminHeader></app-adminHeader>
+<div class="form">
+  <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+    <h2>Add Product</h2>
+    <input
+      id="fileInput"
+      style="display: none"
+      type="file"
+      accept="Image"
+      (change)="imageHandler($event)"
+      multiple
+    />
+    <label class="imageLabel" ><img [src]="imgSrc"/></label>
+    <label for="fileInput" class="imageLabel1">
+      <mat-icon>photo_camera</mat-icon>
+    </label>
+    <input type="text" formControlName="name" placeholder="name"
+    [class.error]="addProductForm.get('name')?.touched && addProductForm.get('name')?.errors?.['required'] "/>
+
+    <input type="text" formControlName="price" placeholder="price"
+    [class.error]="addProductForm.get('price')?.touched && addProductForm.get('price')?.errors?.['required'] "/>
+
+    <select name="categories" id="categories" formControlName="categoryId"
+    [class.error]="addProductForm.get('description')?.touched && addProductForm.get('description')?.errors?.['required'] ">
+      <option value="" hidden selected >Choose Category</option>
+      <option  *ngFor="let data of list" [value]="data.id">{{data.name}}</option>
+    </select>
+
+    <input type="text" formControlName="brand" placeholder="brand"
+    [class.error]="addProductForm.get('brand')?.touched && addProductForm.get('brand')?.errors?.['required'] "/>
+    <textarea  id="description" name="description" placeholder="Description..." formControlName="description" ></textarea>
+    <!-- <input type="text" formControlName="description" placeholder="description" name="description" id="description"
+    [class.error]="addProductForm.get('description')?.touched && addProductForm.get('description')?.errors?.['required'] "/> -->
+    <div class="divv">
+      <button [disabled]="addProductForm.invalid" type="submit">Add</button>
+    </div>
+  </form>
+</div>
+

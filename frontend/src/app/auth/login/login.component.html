@@ -1,0 +1,17 @@
+<div class="form">
+  <h2>Sign In</h2>
+  <form [formGroup]="userLoginForm" (ngSubmit)="login()">
+    <input type="email" formControlName="email" placeholder="abc@example.com" [class.error]="userLoginForm.get('email')?.touched && userLoginForm.get('email')?.errors?.['required'] " />
+    <p *ngIf="userLoginForm.get('email')?.touched && userLoginForm.get('email')?.errors?.['required'] ">Email Required</p>
+    <p *ngIf="userLoginForm.get('email')?.touched && userLoginForm.get('email')?.errors?.['email'] ">Wrong Email Format</p>
+    <input type="password" formControlName="password" placeholder="Password" [class.error]="userLoginForm.get('password')?.touched && userLoginForm.get('password')?.errors?.['required'] " />
+    <p *ngIf="userLoginForm.get('password')?.touched && userLoginForm.get('password')?.errors?.['required'] ">Password Required</p>
+    <div class="divv">
+      <button [disabled]="userLoginForm.invalid" type="submit">Sign In</button>
+    </div>
+  </form>
+  <div class="butons">
+    <a routerLink="/user/forgot">Forgot Password?</a>
+  </div>
+  <p>Already Have Account?<a routerLink="/user/register">Create Account</a></p>
+</div>

@@ -1,0 +1,121 @@
+div.cart{
+  width: 60%;
+  margin: auto;
+}
+div.cart .title{
+  text-align: center;
+  margin-bottom: 30px;
+}
+div.cart .cartItems{
+  height: 200px;
+  display: flex;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px;
+  justify-content: space-between;
+  background-color: white;
+
+}
+div.cart .cartItems .productImg{
+  width: 30%;
+  height: 100%;
+  padding: 20px;
+}
+div.cart .cartItems .productImg img{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 5px grey;
+}
+div.cart .cartItems .productDescription{
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+div.cart .cartItems .productDescription .description{
+  width: 50%;
+  height: 100%;
+}
+
+#desc {
+  height: 40px;
+  overflow: auto;
+  /* text-overflow: ellipsis;
+  white-space: nowrap; */
+}
+.star {
+  font-size: 40px;
+  color: var(--yellow);
+}
+ label{
+  font-weight: bold;
+  margin: 0;
+}
+div.cart .cartItems .price-quantityManager {
+  width: 20%;
+}
+div.cart .cartItems .price-quantityManager .pr{
+  width: 100%;
+  height: 20%;
+}
+div.cart .cartItems .price-quantityManager .pr p {
+  font-weight: bold;
+  text-align: center;
+}
+div.cart .cartItems .price-quantityManager .quantity{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+div.cart .cartItems .price-quantityManager .quantity button{
+  margin: 0 5px;
+  outline: none;
+  font-size: 20px;
+  box-shadow: 1px 1px 5px grey;
+  background-color: white;
+}
+div.cart .cartItems .price-quantityManager .remove{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  padding: 0 5px 5px 0;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+div.cart .cartItems .price-quantityManager .remove button{
+   background-color:var(--red);
+}
+
+div.cart .subTotal{
+  padding: 0 20px;
+  text-align: end;
+}
+div.cart .subTotal p{
+  font-weight: bold;
+}
+div.cart .checkoutBtn{
+  width: 100%;
+}
+div.cart .checkoutBtn button{
+  width: 100%;
+  background-color: var(--yellow);
+}
+div.checkout{
+  width: 400px;
+  margin: auto;
+  position: absolute;
+  left: 40%;
+  top: 100px;
+  border-radius: 10px;
+  padding: 20px 50px 10px 50px;
+  background-color:var(--pink);
+  box-shadow: 0 0 20px 1px grey;
+}
+div.checkout input{
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}

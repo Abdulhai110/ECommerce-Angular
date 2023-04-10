@@ -1,0 +1,74 @@
+<div class="nav">
+  <div class="nav-left">
+    <div class="logo-DeliveryLocation">
+      <a class="menu" (click)="toggle()" ><i class="fa-solid fa-bars"></i></a>
+      <a routerLink="/dashboard" class="logo">
+        <span>Kharid Lo</span>
+      </a>
+      <a href="" class="deliveryLocation">
+        <span class="deliveryLogo"><mat-icon>location_on</mat-icon></span>
+        <div class="delvryCountry">
+          <p>Delivery To</p>
+          <div></div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="nav-fill">
+    <div class="searchBar">
+      <a class="categorySelection">
+        <i class="fa-solid fa-caret-down"></i>
+      </a>
+      <a class="searchArea">
+        <input type="text" placeholder="search ">
+      </a>
+      <a class="searchButton">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-tools">
+      <a  class="language">
+        <span>
+          <span>
+            <span routerLink="/aboutUs">About Us</span>
+            <div></div>
+          </span>
+        </span>
+      </a>
+      <a  class="orders">
+        <div>
+          <span>Contact Us</span>
+        </div>
+      </a>
+      <a class="cart">
+        <a (click)="isLogedIn()"><i class="fa-solid fa-cart-shopping"></i></a>
+        <div></div>
+      </a>
+
+      <a class="accounts">
+        <div class="profile" (click)="profile()">
+          <img [src]="imgSrc" alt="">
+        </div>
+        <div class="profilePage" *ngIf="profileDiv">
+          <a routerLink="/admin" *ngIf="role" ><i class="fa-solid fa-user-tie"></i> <i>Admin</i></a>
+          <a *ngIf="!isLoggedIn" routerLink="/user/login"><i class="fa-sharp fa-solid fa-right-to-bracket"></i> <i>Sign In</i> </a>
+          <a *ngIf="isLoggedIn" (click)="signOut()"><i class="fa-sharp fa-solid fa-right-from-bracket"></i> <i>Sign Out</i> </a>
+       </div>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- <app-dashboard></app-dashboard> -->
+<!-- <div class="sideBar-mainContent">
+  <div [ngClass]="{'sideBar':!toggelDiv,'animate':toggelDiv}">
+    <app-sideBar ></app-sideBar>
+  </div>
+  <div  [ngClass]="{'class2':toggelDiv}">
+
+  </div>
+</div> -->
+
+

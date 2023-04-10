@@ -1,0 +1,6 @@
+<div class="toast-container" *ngIf="showToast">
+  <span class="closeBtn" (click)="close()">X</span>
+  <span>{{toasterMsg}}</span>
+
+</div>
+<router-outlet></router-outlet>
